@@ -1,0 +1,47 @@
+\documentclass[12pt,oneside]{book}
+
+\usepackage{bingthesis}
+\usepackage{graphicx}
+  \graphicspath{{./figures/}}
+\usepackage{blindtext}
+
+\addbibresource{bibliography.bib}
+
+\title{Thesis or Dissertation Sample for Candidates of the Graduate School of Binghamton University}
+\author{Baxter T. Bearcat}
+\date{\today}
+
+\begin{document}
+
+\frontmatter
+
+\include{pages/title}
+\include{pages/copyright}
+\include{pages/committee}
+\include{pages/abstract}
+\include{pages/dedication}
+\include{pages/acknowledgement}
+\tableofcontents
+\listoftables
+\listoffigures
+
+\mainmatter
+
+\begin{doublespacing}
+    \input{chapters/introduction}
+    \input{chapters/chapter}
+    \input{chapters/blindchapter}
+\end{doublespacing}
+
+% Uncomment this line to add appendices
+\appendix
+\include{chapters/appendix}
+
+\backmatter
+% Uncomment this line to add endnotes section
+\include{pages/notes}
+
+\raggedright
+\printbibliography[heading=bibintoc]
+
+\end{document}

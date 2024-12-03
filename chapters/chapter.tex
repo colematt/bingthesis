@@ -1,0 +1,44 @@
+\chapter{First Chapter Title}
+
+Each chapter should begin at the top of a new page, with a two-inch top margin.\footnote{This is your first footnote, if your chosen style manual calls for footnotes rather than endnotes.}
+The following text is only included to take up space and provide a visual sense of the layout of your paper.
+It is written in Latin for no other reason than to encourage you to bypass it as not being necessary information for you to spend your time reading.
+\blindtext[1] \footnote{This is your second footnote. There should be a space, as shown, between each note (whether footnote or endnote).}
+
+\section{First Section Heading}
+
+\blindtext[2]
+\endnote{This is your first endnote. It will appear at the end of the document.}
+
+\input{figures/sequence-pages}
+
+\section{Second Section Heading}
+\blindtext
+
+\begin{figure}[p]
+    \centering
+    \rotatebox{90}{\includegraphics[width=.85\textheight]{photograph.jpg}}
+    \caption{The crescent moon sets over the Clock Tower at the Union and the Glenn G. Bartle Library Tower at sunset, August 20, 2023.~\cite{BinghamtonUniversity2023Crescent}}
+    \label{fig:photograph}
+\end{figure}
+
+\blindtext
+
+\begin{figure}[t]
+    \centering
+    \includegraphics[scale=0.2]{figures/photograph2.jpg}
+    \caption{Snowfall at Binghamton University, Tuesday, February 12, 2019. Glenn G. Bartle Library tower.~\cite{BinghamtonUniversity2023Snowfall}}
+    \label{fig:photograph2}
+\end{figure}
+
+\blindtext
+
+% Please add the following required packages to your document preamble:
+% \usepackage{graphicx}
+\begin{table}[p]
+    \resizebox{\textwidth}{!}{%
+    \input{tables/general-formatting}
+    }
+    \caption{General formatting requirements for thesis or dissertation}
+    \label{tab:general-formatting}
+\end{table}

@@ -1,0 +1,78 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{bingthesis}[2024/06/01 Binghamton University thesis and dissertation formatting]
+
+\RequirePackage[letterpaper,margin=1.0in,left=1.5in,footskip=0.25in]{geometry}
+
+% Body text is double-spaced (\begin{doublespaced}...\end{doublespaced})
+% text may be either justified (default) or ragged (use \raggedright in document environment)
+\RequirePackage{setspace}
+
+% Font size must be no smaller than 10-point and no larger than 14-point.
+% In document preamble, use one of:
+% \documentclass[10pt,oneside]{book}
+% \documentclass[11pt,oneside]{book}
+% \documentclass[12pt,oneside]{book}
+%
+% LaTeX doesn't understand `14pt`.
+
+% All text should be black (including URLs)
+% Tables and figures may be in color
+% PMS342C is "Binghamton Deep Green" and defined as a convenience.
+\RequirePackage[breaklinks=true,colorlinks=false,hidelinks]{hyperref}
+\RequirePackage{xcolor}
+\definecolor{pms342c}{HTML}{005A43}
+
+% Command to make an inverted pyramid of the title
+\newcommand{\invpyr}[1]{\vbox{\hsize=4.5in \parindent=0pt \emergencystretch=1in
+  \parshape 6
+    0.00in 4.50in
+    0.25in 4.00in
+    0.50in 3.50in
+    0.75in 3.00in
+    1.00in 2.50in
+    1.25in 2.00in
+    \leftskip=0pt plus 1fil \rightskip=0pt plus -1fil
+    \parfillskip=0pt plus 2fil
+    #1\par}}
+
+% Each chapter begins at the top of a new page, with a 2" top margin (here we add 1" of before-sep to the 1" document top margin to get the desired top margin).
+% All headings, chapter names and section names should be formatted consistently
+\RequirePackage[explicit]{titlesec}
+\titleformat{\chapter}[block]
+    {\centering\bfseries\Large}{\Large\thechapter}{1em}{\Large #1}
+\titlespacing*{\chapter}{0pt}{1in}{1\baselineskip}
+\titleformat{\appendix}[block]
+    {\centering\bfseries\Large}{\Large\theappendix}{1em}{\Large #1}
+\titlespacing*{\appendix}{0pt}{1in}{1\baselineskip}
+
+% Footnotes are single-spaced with double-space between notes
+% The setspace package's \doublespacing command does not affect footnote spacing.
+\setlength{\footnotesep}{\baselineskip}
+
+% Uncomment one of these require package statements
+% The first uses Chicago Manual of Style, 16 ed.
+% The second uses a compressed form of the standard LaTeX numeric style, where more than two consecutive numbers are printed as a range (as in many scientific publications).
+
+% \RequirePackage{biblatex-chicago}
+\RequirePackage[sorting=none,style=numeric-comp,backend=biber]{biblatex}
+
+% Bibliography entries must be single-spaced with an extra space between entries. 
+% Style and format should otherwise follow the style guide used for the rest of the thesis/dissertation
+\setlength{\bibitemsep}{1.0\baselineskip plus .05\baselineskip minus .05\baselineskip}
+
+% Each page must be numbered, with the exception of the title page and the copyright page. The number may be centered at the top or bottom of the page or may appear at the top right corner.
+% This makes page numbers appear at footer (as in the Thesis/Dissertation Sample instead of in the header (default for book class)
+\pagestyle{plain}
+
+% Places List of Tables/Figures/etc. in the Table of Contents
+\RequirePackage[nottoc,numbib]{tocbibind}
+
+% Supports placing appendices in table of contents
+\RequirePackage[toc,page]{appendix}
+
+% Add endnote support. Add to table of contents
+\RequirePackage{enotez}
+\setenotez{totoc}
+% Uncomment the below line to coerce footnotes into endnotes.
+
+% \let\footnote=\endnote
