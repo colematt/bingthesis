@@ -307,3 +307,6 @@ TSWLatexianTemp*
 
 # MacOS cruft
 .DS_Store
+
+# Output document
+main.pdf
